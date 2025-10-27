@@ -1,19 +1,18 @@
 export default function handler(req, res) {
-  const tokenSecret = process.env.TOKEN_SECRET;
+  const { token, placeId, universeId } = req.query;
 
-  // token obrigatório
-  if (req.query.token !== tokenSecret) {
-    return res.status(403).json({ error: "Token inválido" });
+  // Substitua "MEU_TOKEN_SECRETO" pelo que você quiser
+  const TOKEN_SECRETO = "MEU_TOKEN_SECRETO";
+
+  if (token !== TOKEN_SECRETO) {
+    return res.status(401).json({ error: "Token inválido" });
   }
 
-  const placeId = req.query.placeId;
-  const universeId = req.query.universeId;
-
-  if (!placeId || !universeId) {
-    return res.status(400).json({ error: "Dados inválidos" });
-  }
-
-  console.log("Acesso registrado:", placeId, universeId);
-
-  return res.status(200).json({ authorized: true });
+  // Exemplo de resposta simples (você pode mudar)
+  return res.status(200).json({
+    status: "OK",
+    message: "Acesso autorizado",
+    placeId,
+    universeId,
+  });
 }
