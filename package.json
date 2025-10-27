@@ -1,4 +1,9 @@
 {
-  "name": "whitelist-api",
-  "version": "1.0.0"
+  "name": "dsm-whitelist-api",
+  "version": "1.0.0",
+  "main": "api/whitelist.js",
+  "type": "module",
+  "scripts": {
+    "start": "node api/whitelist.js"
+  }
 }
